@@ -30,7 +30,7 @@ case "$arch_" in
         echo "当前机器的架构是 [${arch_}${endianness}]"
         echo "脚本内置的架构代码可能有误,不符合您的机器"
         echo "请在这个issue留下评论以便作者及时修改脚本"
-        echo "https://github.com/CH3NGYZ/tailscale-openwrt/issues/6"
+        echo "https://github.com/yb9210/tailscale-openwrt/issues/6"
         echo "------------------------------------------------------"
         exit 1
         ;;
@@ -39,7 +39,7 @@ esac
 if [ -e /tmp/tailscaled ]; then
     echo "INSTALL: ------------------"
     echo "存在残留, 请卸载并重启后重试"
-    echo "卸载命令: wget -qO- https://ghproxy.net/https://raw.githubusercontent.com/CH3NGYZ/tailscale-openwrt/chinese_mainland/uninstall.sh | sh"
+    echo "卸载命令: wget -qO- https://ghproxy.net/https://raw.githubusercontent.com/yb9210/tailscale-openwrt/chinese_mainland/uninstall.sh | sh"
     echo "---------------------------"
     exit 1
 fi
@@ -70,12 +70,12 @@ download_success=false
 
 # 代理列表
 proxy_zip_urls="
-https://ghproxy.net/https://raw.githubusercontent.com/CH3NGYZ/tailscale-openwrt/chinese_mainland/tailscale-openwrt.tgz
-https://fastly.jsdelivr.net/gh/CH3NGYZ/tailscale-openwrt@chinese_mainland/tailscale-openwrt.tgz
-https://gcore.jsdelivr.net/gh/CH3NGYZ/tailscale-openwrt@chinese_mainland/tailscale-openwrt.tgz
-https://jsdelivr.b-cdn.net/gh/CH3NGYZ/tailscale-openwrt@chinese_mainland/tailscale-openwrt.tgz
-https://mirror.ghproxy.com/https://raw.githubusercontent.com/CH3NGYZ/tailscale-openwrt/chinese_mainland/tailscale-openwrt.tgz
-https://raw.fgit.cf/CH3NGYZ/tailscale-openwrt/chinese_mainland/tailscale-openwrt.tgz
+https://ghproxy.net/https://raw.githubusercontent.com/yb9210/tailscale-openwrt/chinese_mainland/tailscale-openwrt.tgz
+https://fastly.jsdelivr.net/gh/yb9210/tailscale-openwrt@chinese_mainland/tailscale-openwrt.tgz
+https://gcore.jsdelivr.net/gh/yb9210/tailscale-openwrt@chinese_mainland/tailscale-openwrt.tgz
+https://jsdelivr.b-cdn.net/gh/yb9210/tailscale-openwrt@chinese_mainland/tailscale-openwrt.tgz
+https://mirror.ghproxy.com/https://raw.githubusercontent.com/yb9210/tailscale-openwrt/chinese_mainland/tailscale-openwrt.tgz
+https://raw.fgit.cf/yb9210/tailscale-openwrt/chinese_mainland/tailscale-openwrt.tgz
 "
 
 for proxy_zip_url in $proxy_zip_urls; do
@@ -124,5 +124,5 @@ echo "--------------------------------------------------------------------------
 # echo "INSTALL: ---------------------------------------------"
 # echo "当前机器的架构是 arch_:${arch_}${endianness}| arch:${arch}"
 # echo "如果成功运行, 请在这个issue留下评论以便作者及时修改说明文档: "
-# echo "https://github.com/CH3NGYZ/tailscale-openwrt/issues/6"
+# echo "https://github.com/yb9210/tailscale-openwrt/issues/6"
 # echo "------------------------------------------------------"
