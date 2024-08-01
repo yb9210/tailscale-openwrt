@@ -1,4 +1,4 @@
-# Tailscale on OpenWRT :smiley: [![Page Views Count](https://badges.toozhao.com/badges/01GZWH4F36G14VWXT8RP9KRCYV/green.svg)](https://badges.toozhao.com/stats/01GZWH4F36G14VWXT8RP9KRCYV)
+# Tailscale on OpenWRT :smiley: [![Page Views Count](https://badges.toozhao.com/badges/01J46CWPPPA2R9S047J22BR06K/green.svg)](https://badges.toozhao.com/stats/01J46CWPPPA2R9S047J22BR06K "Get your own page views count badge on badges.toozhao.com")
 
 |  在OpenWRT上部署Tailscale的最简单方法 |
 | ------------ |
