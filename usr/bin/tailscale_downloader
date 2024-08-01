@@ -38,7 +38,7 @@ if [ ! -f /tmp/tailscale ]; then
             echo "DOWNLOAD: ----------------------------------------------------"
             echo "当前机器的架构是${arch}${endianness}, 脚本不兼容此架构"
             echo "请给作者提issue以便作者及时修改脚本:"
-            echo "https://github.com/CH3NGYZ/tailscale-openwrt/issues"
+            echo "https://github.com/yb9210/tailscale-openwrt/issues"
             echo "--------------------------------------------------------------"
             exit 1
             ;;
@@ -46,7 +46,7 @@ if [ ! -f /tmp/tailscale ]; then
 
     latest_version="not_available"
     version_timeout=20
-    version_url="https://github.com/CH3NGYZ/tailscale-openwrt/releases/latest"
+    version_url="https://github.com/yb9210/tailscale-openwrt/releases/latest"
     version_proxys="https://ghproxy.cc
                     https://git.xfj0.cn
                     https://cors.isteed.cc
@@ -89,7 +89,7 @@ if [ ! -f /tmp/tailscale ]; then
     fi
 
     version="${latest_version}_${arch}"
-    zip_url="https://github.com/CH3NGYZ/tailscale-openwrt/releases/download/${latest_version}/tailscale_${version}.tgz"
+    zip_url="https://github.com/yb9210/tailscale-openwrt/releases/download/${latest_version}/tailscale_${version}.tgz"
 
     echo -e "tailscale_${version}/tailscale" > /tmp/tailscale_${version}_files.txt
     echo -e "tailscale_${version}/tailscaled" >> /tmp/tailscale_${version}_files.txt
