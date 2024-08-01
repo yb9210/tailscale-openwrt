@@ -15,8 +15,8 @@ jobs:
       - name: Check Repository Owner
         id: check_owner
         run: |
-          if [ "${{ github.repository_owner }}" != "CH3NGYZ" ]; then
-            echo "Repository owner is not CH3NGYZ. Cancelling the job."
+          if [ "${{ github.repository_owner }}" != "YB9210" ]; then
+            echo "Repository owner is not YB9210. Cancelling the job."
             exit 1
           fi
 
@@ -43,7 +43,7 @@ jobs:
           echo $code
 
 
-      - name: Download
+      - name: 下载
         if: env.code == '404'
         run: |
           echo "下载文件"
@@ -59,7 +59,7 @@ jobs:
           curl --remote-name "https://pkgs.tailscale.com/stable/tailscale_${{ env.latest_version }}_riscv64.tgz"
           ls
 
-      - name: Create Release and Upload Release Asset
+      - name: Create Release和Upload Release Asset
         if: env.code == '404'
         uses: softprops/action-gh-release@v1
         with:
