@@ -45,19 +45,20 @@ if [ ! -f /tmp/tailscale ]; then
     esac
 
     latest_version="not_available"
-    version_timeout=20
-    version_url="https://github.com/yb9210/tailscale-openwrt/releases/latest"
-    version_proxys="https://ghproxy.cc
-                    https://git.xfj0.cn
-                    https://cors.isteed.cc
-                    https://940740.xyz
-                    https://hub.gitmirror.com
-                    https://gh.con.sh
-                    https://mirror.ghproxy.com
-                    https://slink.ltd
-                    https://dl.ghpig.top
-                    https://gh.ddlc.top
-                    https://gh.h233.eu.org"
+    version_timeout=5
+    version_url="yb9210/tailscale-openwrt/releases/latest"
+    version_proxys="https://github.com
+                    https://ghproxy.cc/https://github.com
+                    https://git.xfj0.cn/https://github.com
+                    https://cors.isteed.cc/https://github.com
+                    https://940740.xyz/https://github.com
+                    https://hub.gitmirror.com/https://github.com
+                    https://gh.con.sh/https://github.com
+                    https://mirror.ghproxy.com/https://github.com
+                    https://slink.ltd/https://github.com
+                    https://dl.ghpig.top/https://github.com
+                    https://gh.ddlc.top/https://github.com
+                    https://gh.h233.eu.org/https://github.com"
 
     range="1 2 3"
 
@@ -68,13 +69,13 @@ if [ ! -f /tmp/tailscale ]; then
             get_version=$(timeout $version_timeout wget -c -qO- "$version_proxy_url" | grep 已从上游同步 | head -1 | cut -d'%' -f 2)
             if [ -n "$get_version" ]; then
                 echo "DOWNLOAD: -----------------------------------"
-                echo "通过代理 $version_proxy 获取版本号：$get_version"
+                echo "通过 $version_proxy 获取版本号：$get_version"
                 echo "---------------------------------------------"
                 latest_version=$get_version
                 break 2  # 成功获取到版本号，跳出两个循环
             else
                 echo "DOWNLOAD: ----------------------------------------------------"
-                echo "通过代理 $version_proxy 获取版本号为空，尝试下一个代理..."
+                echo "通过 $version_proxy 获取版本号为空，尝试下一个链接..."
                 echo "--------------------------------------------------------------"
             fi
         done
@@ -82,20 +83,20 @@ if [ ! -f /tmp/tailscale ]; then
 
     # 如果最终还是无法获取到最新版本号，使用默认版本号
     if [ "$latest_version" = "not_available" ]; then
-        latest_version="1.56.1"
+        latest_version="1.70.0"
         echo "DOWNLOAD: --------------------------------"
         echo "获取版本号失败，使用内置版本号：$latest_version"
         echo "------------------------------------------"
     fi
 
     version="${latest_version}_${arch}"
-    zip_url="https://github.com/yb9210/tailscale-openwrt/releases/download/${latest_version}/tailscale_${version}.tgz"
+    zip_url="yb9210/tailscale-openwrt/releases/download/${latest_version}/tailscale_${version}.tgz"
 
     echo -e "tailscale_${version}/tailscale" > /tmp/tailscale_${version}_files.txt
     echo -e "tailscale_${version}/tailscaled" >> /tmp/tailscale_${version}_files.txt
 
     download_success=false
-    timeout_seconds=30
+    timeout_seconds=10
 
     # 尝试下载并解压
     for attempt in $range; do
@@ -104,12 +105,12 @@ if [ ! -f /tmp/tailscale ]; then
             if timeout $timeout_seconds wget -c -qO- $zip_proxy_url | tar xzvf - -C /tmp -T /tmp/tailscale_${version}_files.txt > /dev/null 2>&1 ; then
                 download_success=true
                 echo "DOWNLOAD: ---------------------------------"
-                echo "通过代理 $zip_proxy 下载并解压成功!"
+                echo "通过 $zip_proxy 下载并解压成功!"
                 echo "-------------------------------------------"
                 break 2  # 成功下载并解压，跳出两个循环
             else
                 echo "DOWNLOAD: --------------------------------------"
-                echo "通过代理 $zip_proxy 下载失败，尝试下一个代理..."
+                echo "通过 $zip_proxy 下载失败，尝试下一个链接..."
                 echo "------------------------------------------------"
             fi
         done
@@ -117,7 +118,7 @@ if [ ! -f /tmp/tailscale ]; then
 
     if [ "$download_success" != true ]; then
         echo "DOWNLOAD: ----------------------------------------"
-        echo "所有代理下载均失败，请检查网络或稍后再试。"
+        echo "所有链接下载均失败，请检查网络或稍后再试。"
         echo "--------------------------------------------------"
         exit 1
     fi
