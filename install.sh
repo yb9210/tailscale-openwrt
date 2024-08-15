@@ -70,6 +70,7 @@ download_success=false
 
 # 代理列表
 proxy_zip_urls="
+https://raw.githubusercontent.com/yb9210/tailscale-openwrt/chinese_mainland/tailscale-openwrt.tgz
 https://ghproxy.net/https://raw.githubusercontent.com/yb9210/tailscale-openwrt/chinese_mainland/tailscale-openwrt.tgz
 https://fastly.jsdelivr.net/gh/yb9210/tailscale-openwrt@chinese_mainland/tailscale-openwrt.tgz
 https://gcore.jsdelivr.net/gh/yb9210/tailscale-openwrt@chinese_mainland/tailscale-openwrt.tgz
