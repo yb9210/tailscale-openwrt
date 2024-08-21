@@ -21,6 +21,7 @@
 ```
 wget -O- https://ghproxy.cc/https://raw.githubusercontent.com/yb9210/tailscale-openwrt/chinese_mainland/install.sh | sh
 ```
+> 请注意, 由于tailscale 1.48.0版本后支持了nftables，本项目于2024.8.20、tailscale:1.72.0时更新支持，将环境变量`TS_DEBUG_FIREWALL_MODE=auto`传递给tailscale进程，如果你发现系统日志中tailscale无法正常启动，请考虑设置具体的防火墙模式（修改/etc/init.d/tailscale），详见[设置](https://tailscale.com/kb/1294/firewall-mode#how-to-set-the-firewall-mode)
 
 
 
