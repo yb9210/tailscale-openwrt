@@ -9,6 +9,7 @@ STOP=1
 
 start_service() {
   procd_open_instance
+  procd_set_param env TS_DEBUG_FIREWALL_MODE=auto
   procd_set_param command /usr/bin/tailscaled
 
   # Set the port to listen on for incoming VPN packets.
