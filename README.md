@@ -2,8 +2,8 @@
 
 |  在OpenWRT上部署Tailscale的最简单方法 |
 | ------------ |
-|  已测试支持的架构：x86_64、aarch64、mipsle、mips |
-|  未经测试的架构：armv8l、armv7l、riscv64、mips64、mips64le、mipsle、i386、geode |
+|  已测试支持的架构：x86_64、aarch64、mipsle、mips、armv8l、armv7l |
+|  未经测试的架构：riscv64、mips64、mips64le、mipsle、i386、geode |
 
 
 - 尽管我的[install.sh](https://github.com/yb9210/tailscale-openwrt/blob/chinese_mainland/install.sh)脚本中有预设armv8l、armv7l、riscv64、mips、mips64、mips64le、i386、geode这些架构的安装命令，但由于系统以及机器架构的不同，导致运行查看架构的命令 `uname -m` 出来的结果 ***可能*** 不是脚本中预设的内容，所以有可能因为对不上而查找架构失败，因此如果你能测试这个脚本，并在issues中通知运行的结果，我将尽快更新脚本，以及文档中支持的架构部分。
